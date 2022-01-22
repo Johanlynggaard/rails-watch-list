@@ -1,0 +1,11 @@
+<h1>Your lists</h1>
+<div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
+    <%= link_to 'Add a new list', new_list_path %>
+  </div>
+  <% @lists.each do |i| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <%= link_to i.name, list_path(i) %>
+    </div>
+  <% end %>
+</div>
