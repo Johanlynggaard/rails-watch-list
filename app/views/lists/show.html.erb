@@ -2,9 +2,14 @@
 <%= link_to 'Back', lists_path %>
 <div class="cards">
   <% @list.movies.each do |i| %>
+    <% bookmark = Bookmark.find_by(list: @list, movie: i) %>
     <div class="card-category movie" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= i.poster_url %>)">
       <p><strong><%= i.title %></strong></p>
       <p><%= i.rating %> / 10</p>
+      <%= link_to 'Delete bookmark', bookmark_path(bookmark.id), method: :delete %>
     </div>
   <% end %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
+    <%= link_to 'Add a new bookmark', new_list_bookmark_path(@list), :style => "text-decoration: none; color: inherit;" %>
+  </div>
 </div>
